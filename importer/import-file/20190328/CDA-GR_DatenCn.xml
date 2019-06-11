@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CrystalReport xmlns="urn:crystal-reports:schemas:report-detail" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:crystal-reports:schemas:report-detail http://www.businessobjects.com/products/xml/CR2008Schema.xsd">
+    <Group Level="1">
+        <GroupHeader>
+            <Section SectionNumber="0">
+                <Subreport Name="Subreport7">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Picture Name="THUMBBLOB1" GraphicType="BolbField"></Picture>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="1">
+                <Subreport Name="Subreport1">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DISPLAYORDER1" FieldName="{CONXREFS.DISPLAYORDER}">
+                                <FormattedValue>1</FormattedValue>
+                                <Value>1</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="ROLE1" FieldName="{ROLES.ROLE}">
+                                <FormattedValue>Inventor</FormattedValue>
+                                <Value>Inventor</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="DISPLAYNAME1" FieldName="{CONALTNAMES.DISPLAYNAME}">
+                                <FormattedValue>Lucas Cranach der Ältere</FormattedValue>
+                                <Value>Lucas Cranach der Ältere</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="9">
+                            <Field Name="Nametype1" FieldName="{@Nametype}">
+                                <FormattedValue>Primärer Name </FormattedValue>
+                                <Value>Primärer Name </Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="10">
+                            <Field Name="AndererName1" FieldName="{@AndererName}">
+                                <FormattedValue>Lucas Cranach der Ältere</FormattedValue>
+                                <Value>Lucas Cranach der Ältere</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DISPLAYORDER1" FieldName="{CONXREFS.DISPLAYORDER}">
+                                <FormattedValue>2</FormattedValue>
+                                <Value>2</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="ROLE1" FieldName="{ROLES.ROLE}">
+                                <FormattedValue>Inventor</FormattedValue>
+                                <Value>Inventor</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="DISPLAYNAME1" FieldName="{CONALTNAMES.DISPLAYNAME}">
+                                <FormattedValue>Lucas Cranach the Elder</FormattedValue>
+                                <Value>Lucas Cranach the Elder</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="9">
+                            <Field Name="Nametype1" FieldName="{@Nametype}">
+                                <FormattedValue>Andere Suchform </FormattedValue>
+                                <Value>Andere Suchform </Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="10">
+                            <Field Name="AndererName1" FieldName="{@AndererName}">
+                                <FormattedValue>Lucas Cranach the Elder</FormattedValue>
+                                <Value>Lucas Cranach the Elder</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="2">
+                <Subreport Name="Subreport13">
+                    <Group Level="1">
+                        <GroupHeader>
+                            <Section SectionNumber="0">
+                                <Field Name="GroupNameCONSTITUENTID1" FieldName="GroupName ({CONALTNAMES.CONSTITUENTID})">
+                                    <FormattedValue>32400</FormattedValue>
+                                    <Value>32400</Value>
+                                </Field>
+                            </Section>
+                        </GroupHeader>
+                        <Group Level="2">
+                            <GroupHeader>
+                                <Section SectionNumber="0">
+                                    <Field Name="GroupNameDISPLAYNAME1" FieldName="GroupName ({CONALTNAMES.DISPLAYNAME})">
+                                        <FormattedValue>Lucas Cranach der Ältere</FormattedValue>
+                                        <Value>Lucas Cranach der Ältere</Value>
+                                    </Field>
+                                </Section>
+                            </GroupHeader>
+                            <Group Level="3">
+                                <GroupHeader>
+                                    <Section SectionNumber="0">
+                                        <Field Name="GroupNameNAMETYPE1" FieldName="GroupName ({CONALTNAMES.NAMETYPE})">
+                                            <FormattedValue>Primärer Name</FormattedValue>
+                                            <Value>Primärer Name</Value>
+                                        </Field>
+                                    </Section>
+                                </GroupHeader>
+                            </Group>
+                        </Group>
+                        <Group Level="2">
+                            <GroupHeader>
+                                <Section SectionNumber="0">
+                                    <Field Name="GroupNameDISPLAYNAME1" FieldName="GroupName ({CONALTNAMES.DISPLAYNAME})">
+                                        <FormattedValue>Lucas Cranach the Elder</FormattedValue>
+                                        <Value>Lucas Cranach the Elder</Value>
+                                    </Field>
+                                </Section>
+                            </GroupHeader>
+                            <Group Level="3">
+                                <GroupHeader>
+                                    <Section SectionNumber="0">
+                                        <Field Name="GroupNameNAMETYPE1" FieldName="GroupName ({CONALTNAMES.NAMETYPE})">
+                                            <FormattedValue>Andere Suchform</FormattedValue>
+                                            <Value>Andere Suchform</Value>
+                                        </Field>
+                                    </Section>
+                                </GroupHeader>
+                            </Group>
+                        </Group>
+                        <Group Level="2">
+                            <GroupHeader>
+                                <Section SectionNumber="0">
+                                    <Field Name="GroupNameDISPLAYNAME1" FieldName="GroupName ({CONALTNAMES.DISPLAYNAME})">
+                                        <FormattedValue>Lucas Sunders</FormattedValue>
+                                        <Value>Lucas Sunders</Value>
+                                    </Field>
+                                </Section>
+                            </GroupHeader>
+                            <Group Level="3">
+                                <GroupHeader>
+                                    <Section SectionNumber="0">
+                                        <Field Name="GroupNameNAMETYPE1" FieldName="GroupName ({CONALTNAMES.NAMETYPE})">
+                                            <FormattedValue>Falsche Namensform</FormattedValue>
+                                            <Value>Falsche Namensform</Value>
+                                        </Field>
+                                    </Section>
+                                </GroupHeader>
+                            </Group>
+                        </Group>
+                    </Group>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="3">
+                <Subreport Name="Subreport6">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DISPLAYORDER1" FieldName="{OBJTITLES.DISPLAYORDER}">
+                                <FormattedValue>1</FormattedValue>
+                                <Value>1</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TITLETYPE1" FieldName="{TITLETYPES.TITLETYPE}">
+                                <FormattedValue>Titel</FormattedValue>
+                                <Value>Titel</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="LANGUAGE1" FieldName="{LANGUAGES.LANGUAGE}">
+                                <FormattedValue>Deutsch</FormattedValue>
+                                <Value>Deutsch</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="TITLE1" FieldName="{OBJTITLES.TITLE}">
+                                <FormattedValue>Luther als Junker Jörg</FormattedValue>
+                                <Value>Luther als Junker Jörg</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="4">
+                            <Field Name="REMARKS1" FieldName="{OBJTITLES.REMARKS}">
+                                <FormattedValue>[http://www.smb-digital.de/eMuseumPlus?service=ExternalInterface&amp;module=collection&amp;objectId=1056187](accessed 10.01.2018]</FormattedValue>
+                                <Value>[http://www.smb-digital.de/eMuseumPlus?service=ExternalInterface&amp;module=collection&amp;objectId=1056187](accessed 10.01.2018]</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DISPLAYORDER1" FieldName="{OBJTITLES.DISPLAYORDER}">
+                                <FormattedValue>2</FormattedValue>
+                                <Value>2</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TITLETYPE1" FieldName="{TITLETYPES.TITLETYPE}">
+                                <FormattedValue>Titel</FormattedValue>
+                                <Value>Titel</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="LANGUAGE1" FieldName="{LANGUAGES.LANGUAGE}">
+                                <FormattedValue>Englisch</FormattedValue>
+                                <Value>Englisch</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="TITLE1" FieldName="{OBJTITLES.TITLE}">
+                                <FormattedValue>Luther as Junker Jörg</FormattedValue>
+                                <Value>Luther as Junker Jörg</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="4">
+                            <Field Name="REMARKS1" FieldName="{OBJTITLES.REMARKS}">
+                                <FormattedValue>[cda 2018]</FormattedValue>
+                                <Value>[cda 2018]</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="4">
+                <Field Name="Klassifizierung1" FieldName="{@Klassifizierung}">
+                    <FormattedValue>Druckgrafik</FormattedValue>
+                    <Value>Druckgrafik</Value>
+                </Field>
+                <Text Name="Text24">
+                    <TextValue>Klassifizierung:</TextValue>
+                </Text>
+                <Text Name="Text28">
+                    <TextValue>Druckzustand/Version:</TextValue>
+                </Text>
+                <Field Name="Druckzustand1" FieldName="{@Druckzustand}">
+                    <FormattedValue>zweite Auflage#second edition</FormattedValue>
+                    <Value>zweite Auflage#second edition</Value>
+                </Field>
+            </Section>
+            <Section SectionNumber="5">
+                <Field Name="OBJECTNAME1" FieldName="{OBJECTS.OBJECTNAME}">
+                    <FormattedValue>H132c</FormattedValue>
+                    <Value>H132c</Value>
+                </Field>
+                <Text Name="Text22">
+                    <TextValue>Objektbezeichnung:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="6">
+                <Field Name="Inventarnummer1" FieldName="{@Inventarnummer}">
+                    <FormattedValue>DE_SMBKSK_66-1898</FormattedValue>
+                    <Value>DE_SMBKSK_66-1898</Value>
+                </Field>
+                <Text Name="Text3">
+                    <TextValue>Inventarnummer: </TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="7">
+                <Text Name="Text23">
+                    <TextValue>ObjectID: </TextValue>
+                </Text>
+                <Field Name="OBJECTID1" FieldName="{OBJECTS.OBJECTID}">
+                    <FormattedValue>927563</FormattedValue>
+                    <Value>927563.00</Value>
+                </Field>
+                <Field Name="ISVIRTUAL1" FieldName="{OBJECTS.ISVIRTUAL}">
+                    <FormattedValue>0</FormattedValue>
+                    <Value>0</Value>
+                </Field>
+                <Text Name="Text29">
+                    <TextValue>Virtuell:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="8">
+                <Field Name="Feld2" FieldName="{OBJECTS.DIMENSIONS}">
+                    <FormattedValue>Blattmaß: 35,1 x 22,6 cm
+Plattenmaß: 28,20 x 20,70 cm
+[http://www.smb-digital.de/eMuseumPlus?service=ExternalInterface&amp;module=collection&amp;objectId=1056187](accessed 10.01.2018]
+#Sheet: 35.1 x 22.6 cm
+Borderlines: 28,20 x 20,70 cm
+[http://www.smb-digital.de/eMuseumPlus?service=ExternalInterface&amp;module=collection&amp;objectId=1056187](accessed 10.01.2018]</FormattedValue>
+                    <Value>Blattmaß: 35,1 x 22,6 cm
+Plattenmaß: 28,20 x 20,70 cm
+[http://www.smb-digital.de/eMuseumPlus?service=ExternalInterface&amp;module=collection&amp;objectId=1056187](accessed 10.01.2018]
+#Sheet: 35.1 x 22.6 cm
+Borderlines: 28,20 x 20,70 cm
+[http://www.smb-digital.de/eMuseumPlus?service=ExternalInterface&amp;module=collection&amp;objectId=1056187](accessed 10.01.2018]</Value>
+                </Field>
+                <Text Name="Text21">
+                    <TextValue>Maße:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="9">
+                <Field Name="DATED1" FieldName="{OBJECTS.DATED}">
+                    <FormattedValue>1522</FormattedValue>
+                    <Value>1522</Value>
+                </Field>
+                <Text Name="Text20">
+                    <TextValue>Datierung:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="10">
+                <Text Name="Text25">
+                    <TextValue>Anfangsdatum:</TextValue>
+                </Text>
+                <Field Name="DATEBEGIN1" FieldName="{OBJECTS.DATEBEGIN}">
+                    <FormattedValue>1517</FormattedValue>
+                    <Value>1517.00</Value>
+                </Field>
+            </Section>
+            <Section SectionNumber="11">
+                <Text Name="Text26">
+                    <TextValue>Enddatum:</TextValue>
+                </Text>
+                <Field Name="DATEEND1" FieldName="{OBJECTS.DATEEND}">
+                    <FormattedValue>1527</FormattedValue>
+                    <Value>1527.00</Value>
+                </Field>
+            </Section>
+            <Section SectionNumber="12">
+                <Text Name="Text19">
+                    <TextValue>Bemerkung:</TextValue>
+                </Text>
+                <Field Name="DATEREMARKS1" FieldName="{OBJECTS.DATEREMARKS}">
+                    <FormattedValue>[datiert, später gedrückt]#[dated, printed later]</FormattedValue>
+                    <Value>[datiert, später gedrückt]#[dated, printed later]</Value>
+                </Field>
+            </Section>
+            <Section SectionNumber="13">
+                <Subreport Name="Subreport9">
+                    <Details Level="1"></Details>
+                    <ReportFooter></ReportFooter>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="14">
+                <Field Name="DESCRIPTION1" FieldName="{OBJECTS.DESCRIPTION}">
+                    <FormattedValue>Der Holzschnitt 'Luther als Junker Jörg' entstand als letztes der graphischen Porträts Luthers. 
+Das Bildnis begleitete Luthers Rückkehr in die Öffentlichkeit in 1522. Es fand weite Verbreitung und wurde noch bis ins späte 16. Jahrhundert gedruckt. Die Inschrift feiert Luthers Rückkehr, indem sie die Metapher der Insel Patmos (wo Johannes die Apokalypse verfasste)verwendet für seinen Aufenthalt auf der Wartburg.</FormattedValue>
+                    <Value>Der Holzschnitt 'Luther als Junker Jörg' entstand als letztes der graphischen Porträts Luthers. 
+Das Bildnis begleitete Luthers Rückkehr in die Öffentlichkeit in 1522. Es fand weite Verbreitung und wurde noch bis ins späte 16. Jahrhundert gedruckt. Die Inschrift feiert Luthers Rückkehr, indem sie die Metapher der Insel Patmos (wo Johannes die Apokalypse verfasste)verwendet für seinen Aufenthalt auf der Wartburg.</Value>
+                </Field>
+                <Text Name="Text1">
+                    <TextValue>Beschreibung:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="15">
+                <Field Name="LONGTEXT31" FieldName="{OBJCONTEXT.LONGTEXT3}">
+                    <FormattedValue>The woodcut showing 'Luther as Junker Jörg' is the last graphic portrait of Luther by Cranach and marked his return to the public stage in 1522. It was widely disseminated and continued to be printed until late into the 16th century. The inscription celebrates Luther's return employing the island of Patmos (where St John wrote the Apocalypse) as a metaphor for his time at the Wartburg.</FormattedValue>
+                    <Value>The woodcut showing 'Luther as Junker Jörg' is the last graphic portrait of Luther by Cranach and marked his return to the public stage in 1522. It was widely disseminated and continued to be printed until late into the 16th century. The inscription celebrates Luther's return employing the island of Patmos (where St John wrote the Apocalypse) as a metaphor for his time at the Wartburg.</Value>
+                </Field>
+                <Text Name="Text2">
+                    <TextValue>Beschreibung (engl.):</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="16">
+                <Field Name="PROVENANCE1" FieldName="{OBJECTS.PROVENANCE}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+                <Text Name="Text4">
+                    <TextValue>Provenienz:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="17">
+                <Field Name="LONGTEXT51" FieldName="{OBJCONTEXT.LONGTEXT5}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+                <Text Name="Text5">
+                    <TextValue>Provenienz (engl.):</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="18">
+                <Field Name="MEDIUM1" FieldName="{OBJECTS.MEDIUM}">
+                    <FormattedValue>Druck auf Papier
+[cda 2018]</FormattedValue>
+                    <Value>Druck auf Papier
+[cda 2018]</Value>
+                </Field>
+                <Text Name="Text6">
+                    <TextValue>Material/Technik:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="19">
+                <Field Name="LONGTEXT41" FieldName="{OBJCONTEXT.LONGTEXT4}">
+                    <FormattedValue>Print on paper
+[cda 2018]</FormattedValue>
+                    <Value>Print on paper
+[cda 2018]</Value>
+                </Field>
+                <Text Name="Text7">
+                    <TextValue>Material/Technik (engl.):</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="20">
+                <Text Name="Text8">
+                    <TextValue>Datierung/Künstlersig-
+natur/Unterzeichner:</TextValue>
+                </Text>
+                <Field Name="PAPERSUPPORT2" FieldName="{OBJECTS.PAPERSUPPORT}">
+                    <FormattedValue>Keine</FormattedValue>
+                    <Value>Keine</Value>
+                </Field>
+            </Section>
+            <Section SectionNumber="21">
+                <Field Name="SHORTTEXT61" FieldName="{OBJCONTEXT.SHORTTEXT6}">
+                    <FormattedValue>None</FormattedValue>
+                    <Value>None</Value>
+                </Field>
+                <Text Name="Text9">
+                    <TextValue>Datierung/Künstlersig-
+natur/Unterzeichner (engl.):</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="22">
+                <Field Name="INSCRIBED1" FieldName="{OBJECTS.INSCRIBED}">
+                    <FormattedValue>Oben:
+IMAGO MARTINI LVTHERI EO HABIT V EX-/ PRESSA, QVO REVERSVS EST EX PATHMO VVITTE-/BERGAM ANNO DOMINI 1522.
+
+Unten:
+Zwei Verspaare in einem Spalt:
+Queasitus toties, toties tibi Roma petitus,/ En ego per Christum uiuo Lutherus adhuc.
+Vna mihi spes est, quo non fraudabor, IESVS,/ Hunc mihi dum teneam, perfida Roma uale.
+In drei Spalten:
+ANNVS CONFESSIONIS VVO-/RMATIAE 1521./ CaesarIs ante peDes, proCeres stetit ante potentes/ ACCoLa qVà Rheni VangIo LhtVs aDIt.
+ANNVS PATHMI/ 1521./ A Rheno properans CapItVr, benè ConsCIa PathMI/ TeCta, Papae fVgiens retIna strVCta, petIt. 
+ANNVS REDITVS EX/ PATHMO 1522./ CarlstaDII ob fVrias aD SaXonateCtarrCVrrIt,/ FaVCibVs ex saeVis rVrsVs oVesqVe rapIt.</FormattedValue>
+                    <Value>Oben:
+IMAGO MARTINI LVTHERI EO HABIT V EX-/ PRESSA, QVO REVERSVS EST EX PATHMO VVITTE-/BERGAM ANNO DOMINI 1522.
+
+Unten:
+Zwei Verspaare in einem Spalt:
+Queasitus toties, toties tibi Roma petitus,/ En ego per Christum uiuo Lutherus adhuc.
+Vna mihi spes est, quo non fraudabor, IESVS,/ Hunc mihi dum teneam, perfida Roma uale.
+In drei Spalten:
+ANNVS CONFESSIONIS VVO-/RMATIAE 1521./ CaesarIs ante peDes, proCeres stetit ante potentes/ ACCoLa qVà Rheni VangIo LhtVs aDIt.
+ANNVS PATHMI/ 1521./ A Rheno properans CapItVr, benè ConsCIa PathMI/ TeCta, Papae fVgiens retIna strVCta, petIt. 
+ANNVS REDITVS EX/ PATHMO 1522./ CarlstaDII ob fVrias aD SaXonateCtarrCVrrIt,/ FaVCibVs ex saeVis rVrsVs oVesqVe rapIt.</Value>
+                </Field>
+                <Text Name="Text10">
+                    <TextValue>Beschriftung:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="23">
+                <Field Name="LONGTEXT71" FieldName="{OBJCONTEXT.LONGTEXT7}">
+                    <FormattedValue>Top:
+IMAGO MARTINI LVTHERI EO HABIT V EX-/ PRESSA, QVO REVERSVS EST EX PATHMO VVITTE-/BERGAM ANNO DOMINI 1522.
+
+Below:
+Two couplets in single column:
+Queasitus toties, toties tibi Roma petitus,/ En ego per Christum uiuo Lutherus adhuc.
+Vna mihi spes est, quo non fraudabor, IESVS,/ Hunc mihi dum teneam, perfida Roma uale.
+In three columns:
+ANNVS CONFESSIONIS VVO-/RMATIAE 1521./ CaesarIs ante peDes, proCeres stetit ante potentes/ ACCoLa qVà Rheni VangIo LhtVs aDIt.
+ANNVS PATHMI/ 1521./ A Rheno properans CapItVr, benè ConsCIa PathMI/ TeCta, Papae fVgiens retIna strVCta, petIt. 
+ANNVS REDITVS EX/ PATHMO 1522./ CarlstaDII ob fVrias aD SaXonateCtarrCVrrIt,/ FaVCibVs ex saeVis rVrsVs oVesqVe rapIt.</FormattedValue>
+                    <Value>Top:
+IMAGO MARTINI LVTHERI EO HABIT V EX-/ PRESSA, QVO REVERSVS EST EX PATHMO VVITTE-/BERGAM ANNO DOMINI 1522.
+
+Below:
+Two couplets in single column:
+Queasitus toties, toties tibi Roma petitus,/ En ego per Christum uiuo Lutherus adhuc.
+Vna mihi spes est, quo non fraudabor, IESVS,/ Hunc mihi dum teneam, perfida Roma uale.
+In three columns:
+ANNVS CONFESSIONIS VVO-/RMATIAE 1521./ CaesarIs ante peDes, proCeres stetit ante potentes/ ACCoLa qVà Rheni VangIo LhtVs aDIt.
+ANNVS PATHMI/ 1521./ A Rheno properans CapItVr, benè ConsCIa PathMI/ TeCta, Papae fVgiens retIna strVCta, petIt. 
+ANNVS REDITVS EX/ PATHMO 1522./ CarlstaDII ob fVrias aD SaXonateCtarrCVrrIt,/ FaVCibVs ex saeVis rVrsVs oVesqVe rapIt.</Value>
+                </Field>
+                <Text Name="Text11">
+                    <TextValue>Beschriftung (engl.):</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="24">
+                <Field Name="MARKINGS1" FieldName="{OBJECTS.MARKINGS}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+                <Text Name="Text12">
+                    <TextValue>Stempel/Zeichen:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="25">
+                <Field Name="LONGTEXT91" FieldName="{OBJCONTEXT.LONGTEXT9}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+                <Text Name="Text13">
+                    <TextValue>Stempel/Zeichen (engl.):</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="26">
+                <Field Name="RELATEDWORKS1" FieldName="{OBJECTS.RELATEDWORKS}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+                <Text Name="Text14">
+                    <TextValue>verwandte Arbeiten:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="27">
+                <Field Name="LONGTEXT61" FieldName="{OBJCONTEXT.LONGTEXT6}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+                <Text Name="Text15">
+                    <TextValue>verwandte Arbeiten (engl.):</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="28">
+                <Text Name="Text16">
+                    <TextValue>Ausstellungsgeschichte:</TextValue>
+                </Text>
+                <Field Name="EXHIBITIONS1" FieldName="{OBJECTS.EXHIBITIONS}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+            </Section>
+            <Section SectionNumber="29">
+                <Text Name="Text17">
+                    <TextValue>Ausstellungsgeschichte (engl.):</TextValue>
+                </Text>
+                <Field Name="LONGTEXT81" FieldName="{OBJCONTEXT.LONGTEXT8}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+            </Section>
+            <Section SectionNumber="30">
+                <Field Name="BIBLIOGRAPHY1" FieldName="{OBJECTS.BIBLIOGRAPHY}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+                <Text Name="Text18">
+                    <TextValue>Literatur/Quellen:</TextValue>
+                </Text>
+            </Section>
+            <Section SectionNumber="31">
+                <Subreport Name="Subreport11">
+                    <Details Level="1"></Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="32">
+                <Subreport Name="Subreport12">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Text Name="Text5">
+                                <TextValue>Abzug A</TextValue>
+                            </Text>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="Inventarnummer1" FieldName="{@Inventarnummer}">
+                                <FormattedValue>G_LC_H132-1</FormattedValue>
+                                <Value>G_LC_H132-1</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="REMARKS1" FieldName="{ASSOCIATIONS.REMARKS}">
+                                <FormattedValue>Hollstein VI.107.132c</FormattedValue>
+                                <Value>Hollstein VI.107.132c</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="33">
+                <Subreport Name="Subreport8">
+                    <Details Level="1"></Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="34">
+                <Subreport Name="Subreport10">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="HEADING1" FieldName="{REFERENCEMASTER.HEADING}">
+                                <FormattedValue>Exhib. Cat. Nuremberg 1983</FormattedValue>
+                                <Value>Exhib. Cat. Nuremberg 1983</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="REFERENCEID1" FieldName="{REFERENCEMASTER.REFERENCEID}">
+                                <FormattedValue>807</FormattedValue>
+                                <Value>807.00</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="HEADING1" FieldName="{REFERENCEMASTER.HEADING}">
+                                <FormattedValue>Hollstein 1959</FormattedValue>
+                                <Value>Hollstein 1959</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="REFERENCEID1" FieldName="{REFERENCEMASTER.REFERENCEID}">
+                                <FormattedValue>736</FormattedValue>
+                                <Value>736.00</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="HEADING1" FieldName="{REFERENCEMASTER.HEADING}">
+                                <FormattedValue>Jahn, Bernhard 1972</FormattedValue>
+                                <Value>Jahn, Bernhard 1972</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="PAGENUMBER1" FieldName="{REFXREFS.PAGENUMBER}">
+                                <FormattedValue>405</FormattedValue>
+                                <Value>405</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="REFERENCEID1" FieldName="{REFERENCEMASTER.REFERENCEID}">
+                                <FormattedValue>1939</FormattedValue>
+                                <Value>1939.00</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="HEADING1" FieldName="{REFERENCEMASTER.HEADING}">
+                                <FormattedValue>Warnke 1984</FormattedValue>
+                                <Value>Warnke 1984</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="PAGENUMBER1" FieldName="{REFXREFS.PAGENUMBER}">
+                                <FormattedValue>49-51</FormattedValue>
+                                <Value>49-51</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="2">
+                            <Field Name="REFERENCEID1" FieldName="{REFERENCEMASTER.REFERENCEID}">
+                                <FormattedValue>1445</FormattedValue>
+                                <Value>1445.00</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="35">
+                <Subreport Name="Subreport2">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="THESXREFTYPE1" FieldName="{THESXREFTYPES.THESXREFTYPE}">
+                                <FormattedValue>Schlagwort</FormattedValue>
+                                <Value>Schlagwort</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TERM1" FieldName="{TERMS.TERM}">
+                                <FormattedValue>010107</FormattedValue>
+                                <Value>010107</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="PATH1" FieldName="{THESXREFSPATH1.PATH}">
+                                <FormattedValue>Attributes &gt; Objekte &gt; Cranach-Archiv &gt; Funktion &gt; 010107</FormattedValue>
+                                <Value>Attributes &gt; Objekte &gt; Cranach-Archiv &gt; Funktion &gt; 010107</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="THESXREFTYPE1" FieldName="{THESXREFTYPES.THESXREFTYPE}">
+                                <FormattedValue>Schlagwort</FormattedValue>
+                                <Value>Schlagwort</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TERM1" FieldName="{TERMS.TERM}">
+                                <FormattedValue>010402010128</FormattedValue>
+                                <Value>010402010128</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="PATH1" FieldName="{THESXREFSPATH1.PATH}">
+                                <FormattedValue>Attributes &gt; Objekte &gt; Cranach-Archiv &gt; Inhalt &gt; Bildnisse &gt; Männliche Bildnisse &gt; Bekannte Personen &gt; 010402010128</FormattedValue>
+                                <Value>Attributes &gt; Objekte &gt; Cranach-Archiv &gt; Inhalt &gt; Bildnisse &gt; Männliche Bildnisse &gt; Bekannte Personen &gt; 010402010128</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="THESXREFTYPE1" FieldName="{THESXREFTYPES.THESXREFTYPE}">
+                                <FormattedValue>Schlagwort</FormattedValue>
+                                <Value>Schlagwort</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TERM1" FieldName="{TERMS.TERM}">
+                                <FormattedValue>010504</FormattedValue>
+                                <Value>010504</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="PATH1" FieldName="{THESXREFSPATH1.PATH}">
+                                <FormattedValue>Attributes &gt; Objekte &gt; Cranach-Archiv &gt; Technik &gt; 010504</FormattedValue>
+                                <Value>Attributes &gt; Objekte &gt; Cranach-Archiv &gt; Technik &gt; 010504</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="THESXREFTYPE1" FieldName="{THESXREFTYPES.THESXREFTYPE}">
+                                <FormattedValue>Schlagwort</FormattedValue>
+                                <Value>Schlagwort</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TERM1" FieldName="{TERMS.TERM}">
+                                <FormattedValue>010501</FormattedValue>
+                                <Value>010501</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="PATH1" FieldName="{THESXREFSPATH1.PATH}">
+                                <FormattedValue>Attributes &gt; Objekte &gt; Cranach-Archiv &gt; Technik &gt; 010501</FormattedValue>
+                                <Value>Attributes &gt; Objekte &gt; Cranach-Archiv &gt; Technik &gt; 010501</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="36">
+                <Subreport Name="Subreport14">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="THESXREFTYPE1" FieldName="{THESXREFTYPES.THESXREFTYPE}">
+                                <FormattedValue>Location Cranach Object</FormattedValue>
+                                <Value>Location Cranach Object</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TERM1" FieldName="{TERMS.TERM}">
+                                <FormattedValue>Berlin</FormattedValue>
+                                <Value>Berlin</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="PATH1" FieldName="{THESXREFSPATH1.PATH}">
+                                <FormattedValue>Deutschland &gt; Berlin &gt; Berlin</FormattedValue>
+                                <Value>Deutschland &gt; Berlin &gt; Berlin</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="THESXREFTYPE1" FieldName="{THESXREFTYPES.THESXREFTYPE}">
+                                <FormattedValue>Location Cranach Object</FormattedValue>
+                                <Value>Location Cranach Object</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TERM1" FieldName="{TERMS.TERM}">
+                                <FormattedValue>Berlin</FormattedValue>
+                                <Value>Berlin</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="PATH1" FieldName="{THESXREFSPATH1.PATH}">
+                                <FormattedValue>Deutschland &gt; Berlin &gt; Berlin</FormattedValue>
+                                <Value>Deutschland &gt; Berlin &gt; Berlin</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="THESXREFTYPE1" FieldName="{THESXREFTYPES.THESXREFTYPE}">
+                                <FormattedValue>Standort Cranach Objekt</FormattedValue>
+                                <Value>Standort Cranach Objekt</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TERM1" FieldName="{TERMS.TERM}">
+                                <FormattedValue>Berlin</FormattedValue>
+                                <Value>Berlin</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="PATH1" FieldName="{THESXREFSPATH1.PATH}">
+                                <FormattedValue>Deutschland &gt; Berlin &gt; Berlin</FormattedValue>
+                                <Value>Deutschland &gt; Berlin &gt; Berlin</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="THESXREFTYPE1" FieldName="{THESXREFTYPES.THESXREFTYPE}">
+                                <FormattedValue>Standort Cranach Objekt</FormattedValue>
+                                <Value>Standort Cranach Objekt</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="TERM1" FieldName="{TERMS.TERM}">
+                                <FormattedValue>Berlin</FormattedValue>
+                                <Value>Berlin</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="PATH1" FieldName="{THESXREFSPATH1.PATH}">
+                                <FormattedValue>Deutschland &gt; Berlin &gt; Berlin</FormattedValue>
+                                <Value>Deutschland &gt; Berlin &gt; Berlin</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="37">
+                <Subreport Name="Unterbericht1">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DISPLAYORDER1" FieldName="{CONXREFS.DISPLAYORDER}">
+                                <FormattedValue>1</FormattedValue>
+                                <Value>1</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="Feld3" FieldName="{@Rolle}">
+                                <FormattedValue>Besitzer</FormattedValue>
+                                <Value>Besitzer</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="DISPLAYNAME1" FieldName="{CONALTNAMES.DISPLAYNAME}">
+                                <FormattedValue>Kupferstichkabinett, Staatliche Museen zu Berlin Preussischer Kulturbesitz</FormattedValue>
+                                <Value>Kupferstichkabinett, Staatliche Museen zu Berlin Preussischer Kulturbesitz</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DISPLAYORDER1" FieldName="{CONXREFS.DISPLAYORDER}">
+                                <FormattedValue>2</FormattedValue>
+                                <Value>2</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="Feld3" FieldName="{@Rolle}">
+                                <FormattedValue>Repository</FormattedValue>
+                                <Value>Repository</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="DISPLAYNAME1" FieldName="{CONALTNAMES.DISPLAYNAME}">
+                                <FormattedValue>Kupferstichkabinett, Staatliche Museen zu Berlin Preussischer Kulturbesitz</FormattedValue>
+                                <Value>Kupferstichkabinett, Staatliche Museen zu Berlin Preussischer Kulturbesitz</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DISPLAYORDER1" FieldName="{CONXREFS.DISPLAYORDER}">
+                                <FormattedValue>3</FormattedValue>
+                                <Value>3</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="Feld3" FieldName="{@Rolle}">
+                                <FormattedValue>Eigentümer</FormattedValue>
+                                <Value>Eigentümer</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="DISPLAYNAME1" FieldName="{CONALTNAMES.DISPLAYNAME}">
+                                <FormattedValue>Kupferstichkabinett, Staatliche Museen zu Berlin Preussischer Kulturbesitz</FormattedValue>
+                                <Value>Kupferstichkabinett, Staatliche Museen zu Berlin Preussischer Kulturbesitz</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DISPLAYORDER1" FieldName="{CONXREFS.DISPLAYORDER}">
+                                <FormattedValue>4</FormattedValue>
+                                <Value>4</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="Feld3" FieldName="{@Rolle}">
+                                <FormattedValue>Owner</FormattedValue>
+                                <Value>Owner</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="3">
+                            <Field Name="DISPLAYNAME1" FieldName="{CONALTNAMES.DISPLAYNAME}">
+                                <FormattedValue>Kupferstichkabinett, Staatliche Museen zu Berlin Preussischer Kulturbesitz</FormattedValue>
+                                <Value>Kupferstichkabinett, Staatliche Museen zu Berlin Preussischer Kulturbesitz</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="38">
+                <Text Name="Text27">
+                    <TextValue>Sortiernummer: </TextValue>
+                </Text>
+                <Field Name="PERIOD1" FieldName="{OBJCONTEXT.PERIOD}">
+                    <FormattedValue></FormattedValue>
+                    <Value></Value>
+                </Field>
+            </Section>
+            <Section SectionNumber="39">
+                <Subreport Name="Subreport15">
+                    <Details Level="1">
+                        <Section SectionNumber="0">
+                            <Field Name="DESCRIPTION1" FieldName="{ALTNUMS.DESCRIPTION}">
+                                <FormattedValue>Hollstein</FormattedValue>
+                                <Value>Hollstein</Value>
+                            </Field>
+                        </Section>
+                        <Section SectionNumber="1">
+                            <Field Name="ALTNUM1" FieldName="{ALTNUMS.ALTNUM}">
+                                <FormattedValue>VI.107.132c</FormattedValue>
+                                <Value>VI.107.132c</Value>
+                            </Field>
+                        </Section>
+                    </Details>
+                </Subreport>
+            </Section>
+            <Section SectionNumber="40">
+                <Subreport Name="Subreport3">
+                    <Group Level="1">
+                        <GroupHeader>
+                            <Section SectionNumber="0">
+                                <Field Name="ELEMENT1" FieldName="{DIMENSIONELEMENTS.ELEMENT}">
+                                    <FormattedValue>Maßstab CDA</FormattedValue>
+                                    <Value>Maßstab CDA</Value>
+                                </Field>
+                            </Section>
+                        </GroupHeader>
+                        <Details Level="2">
+                            <Section SectionNumber="0">
+                                <Field Name="DIMENSIONTYPE1" FieldName="{DIMENSIONTYPES.DIMENSIONTYPE}">
+                                    <FormattedValue>Höhe</FormattedValue>
+                                    <Value>Höhe</Value>
+                                </Field>
+                                <Field Name="DIMENSION1" FieldName="{DIMENSIONS.DIMENSION}">
+                                    <FormattedValue>35,10</FormattedValue>
+                                    <Value>35.10</Value>
+                                </Field>
+                            </Section>
+                        </Details>
+                        <Details Level="2">
+                            <Section SectionNumber="0">
+                                <Field Name="DIMENSIONTYPE1" FieldName="{DIMENSIONTYPES.DIMENSIONTYPE}">
+                                    <FormattedValue>Breite</FormattedValue>
+                                    <Value>Breite</Value>
+                                </Field>
+                                <Field Name="DIMENSION1" FieldName="{DIMENSIONS.DIMENSION}">
+                                    <FormattedValue>0,00</FormattedValue>
+                                    <Value>0.00</Value>
+                                </Field>
+                            </Section>
+                        </Details>
+                    </Group>
+                </Subreport>
+            </Section>
+        </GroupHeader>
+    </Group>
+    </CrystalReport>
