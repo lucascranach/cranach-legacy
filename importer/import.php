@@ -14,13 +14,14 @@
 
  */
 
-$xmlFile = "./import-file/20190522/CDA-GR_DatenÅbersichtAlles_20190522.xml";
-#$xmlFile = "./import-file/20190522/CDA_DatenÅbersichtAlles_P1_20190522.xml";
+$xmlFile = array();
+$xmlFile["graphics"] = "./import-file/20190522/CDA-GR_DatenÅbersichtAlles_20190522.xml";
+$xmlFile["paintings"] = "./import-file/20190522/CDA_DatenÅbersichtAlles_P1_20190522.xml";
 
-define("HUGOCONTENT", "/Users/cnoss/git/cranach-graphics/content/graphics");
+define("HUGOCONTENT", "/Users/cnoss/git/cranach-graphics/content");
 define("HUGODATA", "/Users/cnoss/git/cranach-graphics/data");
 
-define("KIRBYCONTENT", "/Users/cnoss/git/cranach-graphics/content-kirby/graphics");
+define("KIRBYCONTENT", "/Users/cnoss/git/cranach-graphics/content-kirby");
 define("KIRBYDATA", "/Users/cnoss/git/cranach-graphics/data-kirby");
 
 define("THUMBNAILROOT", "/Users/cnoss/git/cranach-data/thumbnails");
@@ -33,26 +34,61 @@ class Collection
 {
     public $items = array();
 
-    public function __construct(){
-      $thumbCollection = new ImageCollection;
-      $this->thumbs = $thumbCollection->images;
-      $this->mappingVirtualImages = $this->getMappingVirtualImages();
+    public function __construct($type = "graphics", $limit = false)
+    {
+        $thumbCollection = new ImageCollection;
+        $this->thumbs = $thumbCollection->images;
+        $this->mappingVirtualImages = $this->getMappingVirtualImages();
+        $this->type = $type;
+        $this->limit = $limit;
     }
 
-    private function getMappingVirtualImages(){
-      return json_decode(MAPPINGVIRTUALIMAGES);
-    }
+    private function getGraphicThumb($inventarnummer)
+    {
+        $id = "G_" . $inventarnummer;
+        $images = $this->mappingVirtualImages->$id;
 
-    public function addImages(){
-      $itemsWithImage = array();
-      foreach($this->items as &$item){
-        $thumb = $this->getThumb($item);
-        if($thumb){
-          $item->BildURL = $thumb;
-        }else{
-          unset($item);
+        if (sizeof($images) > 0) {
+            return array_shift($images);
+        } else {
+            return false;
         }
-      }
+    }
+
+    private function getPaintingThumb($inventarnummer, $objectName)
+    {
+        $pattern = "=$inventarnummer\_$objectName.*?Overall\.jpg=";
+        $thumbs = preg_grep($pattern, $this->thumbs);
+        return "http://lucascranach.org/thumbnails/" . $inventarnummer . "_$objectName/01_Overall/" . array_pop($thumbs);
+    }
+
+    private function getThumb($item, $type = "graphics")
+    {
+        $inventarnummer = $item->Inventarnummer;
+        $objectName = $item->ObjectName;
+        if ($type === "graphics") {
+            return $this->getGraphicThumb($inventarnummer);
+        } else {
+            return $this->getPaintingThumb($inventarnummer, $objectName);
+        }
+    }
+
+    private function getMappingVirtualImages()
+    {
+        return json_decode(MAPPINGVIRTUALIMAGES);
+    }
+
+    public function addImages()
+    {
+        $itemsWithImage = array();
+        foreach ($this->items as &$item) {
+            $thumb = $this->getThumb($item);
+            if ($thumb) {
+                $item->BildURL = $thumb;
+            } else {
+                unset($item);
+            }
+        }
     }
 
     public function addItem($item)
@@ -81,29 +117,61 @@ class Collection
 
     public function storeVirtualObjects()
     {
-        $this->doStore(HUGODATA . "/cdaGraphicsVirtualObjects.json", $this->getObjects("virtual"));
+        $basePath = HUGODATA;
+        $workingPath = "/" . $this->type;
+        $workingPath = $this->checkPathSegements($basePath, $workingPath);
+        $this->doStore($basePath . $workingPath . "/cdaGraphicsVirtualObjects.json", $this->getObjects("virtual"));
+        print "Virtual Objects stored in $basePath$workingPath\n";
     }
 
     public function storeObjects()
     {
-        $this->doStore(HUGODATA . "/cdaGraphicsObjects.json", $this->getObjects());
+        $basePath = HUGODATA;
+        $workingPath = "/" . $this->type;
+        $workingPath = $this->checkPathSegements($basePath, $workingPath);
+        $this->doStore($basePath . $workingPath . "/cdaObjects.json", $this->getObjects());
+        print "Objects stored in $basePath$workingPath\n";
     }
 
-    private function createHugoObject($item)
+    private function createDirectory($targetPath)
     {
+        print "Create $targetPath\n";
+        mkdir($targetPath, 0775);
+    }
+
+    private function checkPathSegements($basePath, $workingPath)
+    {
+        $pathSegments = explode("/", $workingPath);
+        $targetPath = "/" . array_shift($pathSegments);
+
+        foreach ($pathSegments as $segment) {
+            $targetPath .= "$segment";
+            if (!file_exists($basePath . $targetPath)) {
+                $this->createDirectory($basePath . $targetPath);
+            }
+        }
+        return $targetPath;
+    }
+
+    private function createHugoObject($item, $basePath = false)
+    {
+
+        if (!isset($basePath)) { die;}
         $fn = slugify($item->Title["de"]);
-        $contentFolder = HUGOCONTENT . "/$fn";
+        $contentFolder = $basePath . "/$fn";
+
         if (!file_exists($contentFolder)) {mkdir($contentFolder, 0775);}
 
         $mdFn = $contentFolder . "/index.md";
         $mdContent = array("---");
-        //$thumb = $this->getThumb($item);
-        //if(!$thumb){ return false; }
+
+        $item->Longtext["de"] = $item->Longtext["en"];
 
         foreach ($item as $key => $value) {
 
             $v = (gettype($value) == "array") ? $value["de"] : $value;
-            #if (strlen($v) > 0) {array_push($mdContent, "## $key\n$v\n");}
+
+            
             if (strlen($v) > 0) {
 
                 switch (gettype($v)) {
@@ -123,39 +191,22 @@ class Collection
         file_put_contents($mdFn, join("\n", $mdContent));
     }
 
-    private function getThumb($item ){
-      $inventarnummer = $item->Inventarnummer;
-      #$objectName = $item->ObjectName;
-      #$pattern = "=$inventarnummer\_$objectName.*?Overall\.jpg=";
-      # $thumbs = preg_grep($pattern, $this->thumbs);
-      $id = "G_" . $inventarnummer ;
-      $images = $this->mappingVirtualImages->$id; 
-
-      if(sizeof($images) > 0){
-        #return "http://lucascranach.org/thumbnails/". $inventarnummer . "_$objectName/01_Overall/".array_pop($thumbs);
-        return array_shift($images);
-      }else{
-        return false;
-      }
-
-    }
-
-    private function createKirbyObject($item)
+    private function createKirbyObject($item, $basePath = false)
     {
+        if (!isset($basePath)) { die;}
         $fn = slugify($item->Title["de"]);
-        $contentFolder = KIRBYCONTENT . "/$fn";
+        $contentFolder = $basePath . "/$fn";
         if (!file_exists($contentFolder)) {mkdir($contentFolder, 0775);}
 
-        $mdFn = $contentFolder . "/graphic-page.txt";
+        $mdFn = $contentFolder . "/item-page.txt";
         $mdContent = array();
         $thumb = $this->getThumb($item);
-        if($thumb === false){ return false; }
+        if ($thumb === false) {return false;}
         array_push($mdContent, "BildURL: $thumb");
         array_push($mdContent, "\n----\n");
 
         foreach ($item as $key => $value) {
             $v = (gettype($value) == "array") ? $value["de"] : $value;
-            #if (strlen($v) > 0) {array_push($mdContent, "## $key\n$v\n");}
 
             if (strlen($v) > 0) {
 
@@ -175,43 +226,59 @@ class Collection
         file_put_contents($mdFn, join("\n", $mdContent));
     }
 
-    public function createHugoData()
+    private function cleanFolder($path)
     {
-        if (!file_exists(HUGOCONTENT)) {mkdir(HUGOCONTENT, 0775);}
-        foreach ($this->items as $item) {
+        if (!isset($path)) {die;}
+        $cmd = "find $path -type f";
+        exec($cmd, $files);
+        foreach($files as $file){ unlink($file); }
 
-            if ($item->Type === "virtual") {
-                $this->createHugoObject($item);
-            }
+        $cmd = "find $path -type d";
+        exec($cmd, $folder);
+       foreach($folder as $item){ 
+        if($item !== $path ) {
+          rmdir($item); 
         }
+      }
 
     }
 
-    public function createKirbyData()
+    public function createData($channel = "HUGO")
     {
-        if (!file_exists(KIRBYCONTENT)) {mkdir(KIRBYCONTENT, 0775);}
+        $basePath = ($channel === "HUGO") ? HUGOCONTENT : KIRBYCONTENT;
+        $workingPath = "/" . $this->type;
+        $workingPath = $this->checkPathSegements($basePath, $workingPath);
+
+        $this->cleanFolder($basePath . $workingPath);
         foreach ($this->items as $item) {
-            if ($item->Type === "virtual") {
-                $this->createKirbyObject($item);
+            if (isset($item->BildURL) && preg_match("=[a-z]=i", $item->BildURL) ) {
+              print $item->BildURL . "\n";
+                if ($channel === "HUGO") {
+                    $this->createHugoObject($item, $basePath . $workingPath);
+                } else {
+                    $this->createKirbyObject($item, $basePath . $workingPath);
+                }
             }
         }
-
+        print "$channel Data created in $basePath$workingPath\n";
     }
 }
 
-class ImageCollection{
+class ImageCollection
+{
 
-  public $images = array();
+    public $images = array();
 
-  public function __construct(){
+    public function __construct()
+    {
 
-    $cmd = "find " . THUMBNAILROOT . " -name *.jpg";
-    exec($cmd, $files);
-    foreach($files as $file){
-      $fn = preg_replace("=.*/=", "", $file);
-      array_push($this->images, $fn);
+        $cmd = "find " . THUMBNAILROOT . " -name *.jpg";
+        exec($cmd, $files);
+        foreach ($files as $file) {
+            $fn = preg_replace("=.*/=", "", $file);
+            array_push($this->images, $fn);
+        }
     }
-  }
 }
 
 class Graphic
@@ -445,26 +512,37 @@ function parseGroup($group, $graphic, $collection)
     $collection->addItem($graphic);
 }
 
-function iterateGroups($xml, $collection)
+function iterateGroups($xml, $collection, $limit)
 {
     foreach ($xml->Group as $group) {
         $graphic = new Graphic;
-        
-        $exit++;if ($exit < 500000) {parseGroup($group, $graphic, $collection);}
+
+        $exit++;if ($exit < $limit) {parseGroup($group, $graphic, $collection);}
     }
 }
 
 $exit = 0;
-$collection = new Collection;
 
-if (file_exists($xmlFile)) {
-    $xml = simplexml_load_file($xmlFile);
-    iterateGroups($xml, $collection);
-    $collection->addImages(); 
-    $collection->storeVirtualObjects();
+if (!isset($argv[1]) || ($argv[1] !== "graphics" && $argv[1] !== "paintings")) {
+    print "Was soll ausgespielt werden [graphics|paintings]?\nphp import.php graphics [20]\nphp import.php paintings [20]\n\n";
+    exit;
+}
+
+$limit = (isset($argv[2]) && is_numeric($argv[2])) ? $argv[2] : false;
+
+$type = preg_replace('/\s+/', ' ', trim($argv[1]));
+$collection = new Collection($type, $limit);
+
+if (file_exists($xmlFile[$collection->type])) {
+    $xml = simplexml_load_file($xmlFile[$collection->type]);
+    iterateGroups($xml, $collection, $limit);
+    $collection->addImages();
+    if ($collection->type === "graphics") {
+        $collection->storeVirtualObjects();
+    }
     $collection->storeObjects();
-    $collection->createHugoData();
-    $collection->createKirbyData();
+    $collection->createData("HUGO");
+    $collection->createData("KIRBY");
 } else {
     exit("Datei $xmlFile kann nicht geöffnet werden.");
 }
