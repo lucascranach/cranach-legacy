@@ -17,16 +17,22 @@
 $xmlFile = array();
 $xmlFile["graphics"] = "./import-file/20190522/CDA-GR_DatenÅbersichtAlles_20190522.xml";
 $xmlFile["paintings"] = "./import-file/20190522/CDA_DatenÅbersichtAlles_P1_20190522.xml";
+$xmlFile["paintings"] = "./import-file/20190522/cn-alles.xml";
 
-define("HUGOCONTENT", "/Users/cnoss/git/cranach-graphics/content");
-define("HUGODATA", "/Users/cnoss/git/cranach-graphics/data");
+define("HUGOCONTENT", "/Users/cnoss/git/cranach/cranach-graphics/content");
+define("HUGODATA", "/Users/cnoss/git/cranach/cranach-graphics/data");
 
-define("KIRBYCONTENT", "/Users/cnoss/git/cranach-graphics/content-kirby");
-define("KIRBYDATA", "/Users/cnoss/git/cranach-graphics/data-kirby");
+define("KIRBYCONTENT", "/Users/cnoss/git/cranach/cranach-graphics/content-kirby");
+define("KIRBYDATA", "/Users/cnoss/git/cranach/cranach-graphics/data-kirby");
 
-define("THUMBNAILROOT", "/Users/cnoss/git/cranach-data/thumbnails");
-define("GRAPHICSROOT", "/Users/cnoss/git/cranach/importer/cranach-image-tools/images/dist");
+define("THUMBNAILSERVER", "http://lucascranach.org/thumbnails");
+define("IMAGESERVER", "http://lucascranach.org/imageserver");
+
+define("THUMBNAILROOT", "/Users/cnoss/git/cranach/cranach-data/thumbnails");
+define("GRAPHICSROOT", "/Users/cnoss/git/cranach/cranach/importer/cranach-image-tools/images/dist");
 define("MAPPINGVIRTUALIMAGES", file_get_contents("./import-file/mapping.json"));
+define("ALLOWEDITEMS", file_get_contents("./import-file/allowed-items.json"));
+// define("ALLOWEDITEMS", false);
 
 require_once "helper.php";
 
@@ -39,6 +45,7 @@ class Collection
         $thumbCollection = new ImageCollection;
         $this->thumbs = $thumbCollection->images;
         $this->mappingVirtualImages = $this->getMappingVirtualImages();
+        $this->allowedItems = $this->getAllowedItems();
         $this->type = $type;
         $this->limit = $limit;
     }
@@ -57,9 +64,21 @@ class Collection
 
     private function getPaintingThumb($inventarnummer, $objectName)
     {
-        $pattern = "=$inventarnummer\_$objectName.*?Overall\.jpg=";
+        #$pattern = "=$inventarnummer\_$objectName.*?Overall\.jpg=";
+        $pattern = "=$inventarnummer.*?Overall\.jpg=";
         $thumbs = preg_grep($pattern, $this->thumbs);
-        return "http://lucascranach.org/thumbnails/" . $inventarnummer . "_$objectName/01_Overall/" . array_pop($thumbs);
+
+        $baseFilename = array_pop($thumbs);
+        $itemPath = $inventarnummer . "_$objectName/01_Overall/";
+      
+        $images = array();
+        $images["thumb"] =  THUMBNAILSERVER. "/" . $itemPath . $baseFilename; // Altes Thumbnail
+        $images["xs"] = IMAGESERVER . "/" . $itemPath . preg_replace("=\.jpg=", "-xs.jpg", $baseFilename);
+        $images["s"] = IMAGESERVER . "/" . $itemPath . preg_replace("=\.jpg=", "-s.jpg", $baseFilename);
+        $images["m"] = IMAGESERVER . "/" . $itemPath . preg_replace("=\.jpg=", "-m.jpg", $baseFilename);
+        $images["l"] = IMAGESERVER . "/" . $itemPath . preg_replace("=\.jpg=", "-l.jpg", $baseFilename);
+        $images["xl"] = IMAGESERVER . "/" . $itemPath . preg_replace("=\.jpg=", "-xl.jpg", $baseFilename);
+        return $images;
     }
 
     private function getThumb($item, $type = "graphics")
@@ -78,13 +97,27 @@ class Collection
         return json_decode(MAPPINGVIRTUALIMAGES);
     }
 
+    private function getAllowedItems()
+    {
+        if (ALLOWEDITEMS) {
+            return json_decode(ALLOWEDITEMS);
+        } else {
+            return false;
+        }
+    }
+
     public function addImages()
     {
         $itemsWithImage = array();
         foreach ($this->items as &$item) {
-            $thumb = $this->getThumb($item);
-            if ($thumb) {
-                $item->BildURL = $thumb;
+            $images = $this->getThumb($item, $this->type);
+            if ($images) {
+              $item->BildURL = $images["thumb"];
+              $item->BildURLxs = $images["xs"];
+              $item->BildURLs = $images["s"];
+              $item->BildURLm = $images["m"];
+              $item->BildURLl = $images["l"];
+              $item->BildURLxl = $images["xl"];
             } else {
                 unset($item);
             }
@@ -93,7 +126,14 @@ class Collection
 
     public function addItem($item)
     {
-        array_push($this->items, $item);
+        if ($this->allowedItems) {
+            if ($this->allowedItems && in_array($item->Inventarnummer, $this->allowedItems)) {
+              array_push($this->items, $item);
+            }
+            
+        } else {
+            array_push($this->items, $item);
+        }
     }
 
     public function doStore($fn, $data)
@@ -171,7 +211,6 @@ class Collection
 
             $v = (gettype($value) == "array") ? $value["de"] : $value;
 
-            
             if (strlen($v) > 0) {
 
                 switch (gettype($v)) {
@@ -197,13 +236,11 @@ class Collection
         $fn = slugify($item->Title["de"]);
         $contentFolder = $basePath . "/$fn";
         if (!file_exists($contentFolder)) {mkdir($contentFolder, 0775);}
-
         $mdFn = $contentFolder . "/item-page.txt";
         $mdContent = array();
-        $thumb = $this->getThumb($item);
+        $thumb = $this->getThumb($item, $this->type);
+
         if ($thumb === false) {return false;}
-        array_push($mdContent, "BildURL: $thumb");
-        array_push($mdContent, "\n----\n");
 
         foreach ($item as $key => $value) {
             $v = (gettype($value) == "array") ? $value["de"] : $value;
@@ -231,15 +268,15 @@ class Collection
         if (!isset($path)) {die;}
         $cmd = "find $path -type f";
         exec($cmd, $files);
-        foreach($files as $file){ unlink($file); }
+        foreach ($files as $file) {unlink($file);}
 
         $cmd = "find $path -type d";
         exec($cmd, $folder);
-       foreach($folder as $item){ 
-        if($item !== $path ) {
-          rmdir($item); 
+        foreach ($folder as $item) {
+            if ($item !== $path) {
+                rmdir($item);
+            }
         }
-      }
 
     }
 
@@ -251,13 +288,15 @@ class Collection
 
         $this->cleanFolder($basePath . $workingPath);
         foreach ($this->items as $item) {
-            if (isset($item->BildURL) && preg_match("=[a-z]=i", $item->BildURL) ) {
-              print $item->BildURL . "\n";
+            if (isset($item->BildURL) && preg_match("=[a-z]=i", $item->BildURL)) {
+                print $item->BildURL . "\n";
                 if ($channel === "HUGO") {
                     $this->createHugoObject($item, $basePath . $workingPath);
                 } else {
                     $this->createKirbyObject($item, $basePath . $workingPath);
                 }
+            }else{
+              print "Kein Bild für " . $item->inventarnummer . "\n";
             }
         }
         print "$channel Data created in $basePath$workingPath\n";
@@ -271,7 +310,6 @@ class ImageCollection
 
     public function __construct()
     {
-
         $cmd = "find " . THUMBNAILROOT . " -name *.jpg";
         exec($cmd, $files);
         foreach ($files as $file) {
@@ -516,7 +554,6 @@ function iterateGroups($xml, $collection, $limit)
 {
     foreach ($xml->Group as $group) {
         $graphic = new Graphic;
-
         $exit++;if ($exit < $limit) {parseGroup($group, $graphic, $collection);}
     }
 }
@@ -528,7 +565,7 @@ if (!isset($argv[1]) || ($argv[1] !== "graphics" && $argv[1] !== "paintings")) {
     exit;
 }
 
-$limit = (isset($argv[2]) && is_numeric($argv[2])) ? $argv[2] : false;
+$limit = (isset($argv[2]) && is_numeric($argv[2])) ? $argv[2] : 100000;
 
 $type = preg_replace('/\s+/', ' ', trim($argv[1]));
 $collection = new Collection($type, $limit);
@@ -537,6 +574,7 @@ if (file_exists($xmlFile[$collection->type])) {
     $xml = simplexml_load_file($xmlFile[$collection->type]);
     iterateGroups($xml, $collection, $limit);
     $collection->addImages();
+
     if ($collection->type === "graphics") {
         $collection->storeVirtualObjects();
     }
@@ -544,5 +582,5 @@ if (file_exists($xmlFile[$collection->type])) {
     $collection->createData("HUGO");
     $collection->createData("KIRBY");
 } else {
-    exit("Datei $xmlFile kann nicht geöffnet werden.");
+    exit("Datei ".$xmlFile[$collection->type]." kann nicht geöffnet werden.");
 }
